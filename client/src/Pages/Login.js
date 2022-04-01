@@ -27,6 +27,7 @@ function Login({ history }) {
         loginUser(user)
             .then(res => {
                 if (!res.error) {
+                    console.log(res.user)
                     setUserData(res.user)
                     history.push('/')
                 } else {

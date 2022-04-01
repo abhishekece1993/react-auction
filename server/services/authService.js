@@ -15,7 +15,7 @@ async function registerUser(userData) {
     if (password.length < 8) errors.push("Password should be at least 8 characters long; " );
     if (password.length > 20) errors.push("Password should be at max 20 characters long; " );
     if (errors.length >= 1) throw {message: [errors]}
-    
+    console.log(userData)
     let user = new User(userData);
     return await user.save();
 }
@@ -26,8 +26,8 @@ async function loginUser({ email, password }) {
 
     let hasValidPass = await bcrypt.compare(password, user.password);
     if (!hasValidPass) throw { message: "Invalid email or password" }
-
-    let token = jwt.sign({ _id: user._id, email: user.email, phoneNumber: user.phoneNumber, createdSells: user.createdSells.length, avatar: user.avatar }, SECRET);
+    console.log(user)
+    let token = jwt.sign({ _id: user._id, email: user.email, phoneNumber: user.phoneNumber, createdSells: user.createdSells.length, avatar: user.avatar, kindOfUser: user.kindOfUser }, SECRET);
     return token;
 }
 

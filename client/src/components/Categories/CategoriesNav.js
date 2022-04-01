@@ -14,26 +14,23 @@ function CategoriesNav() {
             <Link to="/categories/all">
                 <Button variant="dark" id="all"><TiSortAlphabetically />All</Button>{' '}
             </Link>
-            <Link to="/categories/properties">
-                <Button variant="dark" id="properties"><BsHouseDoorFill />Properties</Button>{' '}
+            <Link to="/categories/Hatchback">
+                <Button variant="dark" id="Hatchback"><AiFillCar />Hatchback</Button>{' '}
             </Link>
-            <Link to="/categories/auto">
-                <Button variant="dark" id="auto"><AiFillCar />Auto</Button>{' '}
+            <Link to="/categories/Sedan">
+                <Button variant="dark" id="Sedan"><BsHouseDoorFill />Sedan</Button>{' '}
             </Link>
-            <Link to="/categories/home">
-                <Button variant="dark" id="home"><BsFillHouseFill />Home</Button>{' '}
+            <Link to="/categories/SUV">
+                <Button variant="dark" id="SUV"><BsFillHouseFill />SUV</Button>{' '}
             </Link>
-            <Link to="/categories/electronics">
-                <Button variant="dark" id="electronics"><MdPhoneAndroid />Electronics</Button>{' '}
+            <Link to="/categories/Coupe">
+                <Button variant="dark" id="Coupe"><BsFillHouseFill />Coupe</Button>{' '}
             </Link>
-            <Link to="/categories/clothes">
-                <Button variant="dark" id="clothes"><GiClothes />Clothes</Button>{' '}
+            <Link to="/categories/Convertible">
+                <Button variant="dark" id="Convertible"><BsFillHouseFill />Convertible</Button>{' '}
             </Link>
-            <Link to="/categories/toys">
-                <Button variant="dark" id="toys"><BsFillPuzzleFill />Toys</Button>{' '}
-            </Link>
-            <Link to="/categories/garden">
-                <Button variant="dark" id="garden"><GiFlowerPot />Garden</Button>{' '}
+            <Link to="/categories/Minivan">
+                <Button variant="dark" id="Minivan"><BsFillHouseFill />Minivan</Button>{' '}
             </Link>
         </div>
     )

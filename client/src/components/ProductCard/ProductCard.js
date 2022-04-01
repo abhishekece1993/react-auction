@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 
 function ProductCard({ params }) {
     return (
+        <div className={params.category}>
         <Card>
             <Link to={`/categories/${params.category}/${params._id}/details`}>
                 <Card.Img variant="top" src={params.image} />
@@ -18,11 +19,12 @@ function ProductCard({ params }) {
                     <Moment format="d MMM YYYY (dddd) HH:mm">
                         {params.addedAt}
                     </Moment>
-                    -  <strong>{params.city}</strong>
+                    -  <strong>{params.city === 'Bangalore' ? 'Los Angels' : params.city }</strong>
                     {/* <Link to="" id="heartIcon"><BsHeart /></Link> */}
                 </small>
             </Card.Footer>
         </Card>
+        </div>
     )
 }
 

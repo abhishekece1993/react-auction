@@ -41,7 +41,7 @@ router.get('/getUserById/:id', async (req, res) => {
     try {
         let user = await userService.getUserById(req.params.id);
         let jsonRes = {
-            _id: user._id, name: user.name, email: user.email, phoneNumber: user.phoneNumber,
+            _id: user._id, name: user.name, email: user.email, phoneNumber: user.phoneNumber, kindOfUser: user.kindOfUser,
             totalSells: user.createdSells.length, avatar: user.avatar,
             isMe: req.user._id == req.params.id
         }

@@ -10,6 +10,7 @@ import '../components/Categories/Categories.css';
 import '../components/ProductCard/ProductCard.css';
 
 function Categories({ match }) {
+
     let currentCategory = match.params.category;
     const [products, setProduct] = useState([])
     const [page, setPage] = useState(1);
@@ -27,25 +28,28 @@ function Categories({ match }) {
                 setLoading(false);
                 setPage(page => page + 1);
                 setQuery("");
+                
             })
             .catch(err => console.log(err));
     }, [currentCategory, setProduct])
 
-    useEffect(() => {
-        setPage(1);
-        setLoading(true);
-        getAll(2, currentCategory, query)
-            .then(res => {
-                if (query === "") {
-                    setProduct(products => [...products, ...res.products]);
-                } else {
-                    setProduct(res.products)
-                }
-                setLoading(false);
-                setPage(page => page + 1);
-            })
-            .catch(err => console.log(err));
-    }, [query, currentCategory])
+    // useEffect(() => {
+    //     setPage(1);
+    //     setLoading(true);
+    //     getAll(2, currentCategory, query)
+    //         .then(res => {
+    //             if (query === "") {
+    //                 console.log(res)
+    //                 setProduct(products => [...products, ...res.products]);
+    //             } else {
+    //                 console.log(res)
+    //                 setProduct(res.products)
+    //             }
+    //             setLoading(false);
+    //             setPage(page => page + 1);
+    //         })
+    //         .catch(err => console.log(err));
+    // }, [query, currentCategory])
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -55,11 +59,11 @@ function Categories({ match }) {
       return (
         <>
             <div id="sider">
-                <input className="col-lg-6" type="text" placeholder="Search..." name="search" value={query} onChange={handleSearch} />
+                <input className="col-lg-6" type="text" placeholder="Search..." name="search"  />
             </div>
-            <div style={{textAlign: 'center', padding: '3rem'}}>Cars List Card will be here in this section......</div>
+            {/* <div style={{textAlign: 'center', padding: '3rem'}}>Cars List Card will be here in this section......</div> */}
             {/* <CategoriesNav /> */}
-            {/* <div className="container">
+            <div className="container">
                 <Dropdown id="dropdown-sort">
                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                         Sort <BiSort />
@@ -75,13 +79,13 @@ function Categories({ match }) {
                     <InfiniteScroll
                         dataLength={products.length}
                         next={() => {
-                            if (query === "") {
-                                getAll(page, currentCategory)
+                            // if (query === "") {
+                                getAll(page)
                                     .then(res => {
                                         setProduct([...products, ...res.products]);
                                         setPage(page + 1)
                                     })
-                            }
+                            // }
                         }}
                         hasMore={() => {
                             if (products.length > 0) {
@@ -106,16 +110,16 @@ function Categories({ match }) {
                                 }
                             })
                             .map(x =>
-                                <Col xs={12} md={6} lg={3} key={x._id.toString()}>
+                               x.category !=='home' && x.category !=='electronics' && x.category !=='auto' && x.category !=='properties' && x.category !=='clothes'  ? <Col xs={12} md={6} lg={4} key={x._id.toString()}>
                                     <ProductCard params={x} />
-                                </Col>
+                                </Col> : ''
                             )}
                     </InfiniteScroll>
                     : <div className="spinner">
                         <Spinner animation="border" />
                     </div>
                 }
-            </div> */}
+            </div>
         </>
     )
 }

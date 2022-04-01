@@ -57,7 +57,7 @@ class AddProduct extends Component {
             <>
                 <SimpleSider />
                 <div className='container'>
-                    <h1 className="heading">Add a Product</h1>
+                    <h1 className="heading">Add a Car</h1>
                     <Form onSubmit={this.onSubmitHandler}>
                         {this.state.alertShow &&
                             <Alert variant="danger" onClose={() => this.setState({ alertShow: false })} dismissible>
@@ -93,13 +93,12 @@ class AddProduct extends Component {
                                 <Form.Label>Category</Form.Label>
                                 <Form.Control as="select" defaultValue="Choose..." name="category" required onChange={this.onChangeHandler}>
                                     <option>Choose...</option>
-                                    <option>properties</option>
-                                    <option>auto</option>
-                                    <option>electronics</option>
-                                    <option>clothes</option>
-                                    <option>toys</option>
-                                    <option>home</option>
-                                    <option>garden</option>
+                                    <option>Hatchback</option>
+                                    <option>Sedan</option>
+                                    <option>SUV</option>
+                                    <option>Coupe</option>
+                                    <option>Convertible</option>
+                                    <option>Minivan</option>
                                 </Form.Control>
                             </Form.Group>
 
@@ -113,7 +112,7 @@ class AddProduct extends Component {
                                 Please wait... <Spinner animation="border" />
                             </Button>
                             :
-                            <Button className="col-lg-12" variant="primary" type="submit">Add product</Button>
+                            <Button className="col-lg-12" variant="primary" type="submit">Add car</Button>
                         }
                     </Form>
                 </div>

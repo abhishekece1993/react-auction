@@ -15,6 +15,7 @@ function ProfileSection({ params }) {
                     </Col>
                     <Col lg={3} md={3} sm={12}>
                         <p><BsFillPersonFill /> {params.name}</p>
+                        <p><BsFillPersonFill /> {params.kindOfUser}</p>
                         <p><MdEmail /> {params.email}</p>
                         <p><MdPhoneAndroid /> {params.phoneNumber}</p>
                         <p><FaSellsy /> {params.totalSells} sells in total</p>

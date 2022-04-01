@@ -71,7 +71,7 @@ router.post('/create', async (req, res) => {
         if (title.length < 3 || title.length > 50) errors.push('Title should be at least 3 characters long and max 50 characters long; ');
         if (isNaN(Number(price))) errors.push('Price should be a number; ');
         if (description.length < 10 || description.length > 1000) errors.push('Description should be at least 10 characters long and max 1000 characters long; ');
-        if (/^[A-Za-z]+$/.test(city) == false) errors.push('City should contains only english letters; ')
+        if (/^[A-Za-z ]+$/.test(city) == false) errors.push('City should contains only english letters; ')
         if (!image.includes('image')) errors.push('The uploaded file should be an image; ');
         if (!category) errors.push('Category is required; ');
 
@@ -109,7 +109,7 @@ router.patch('/edit/:id', isAuth, async (req, res) => {
         if (title.length < 3 || title.length > 50) errors.push('Title should be at least 3 characters long and max 50 characters long; ');
         if (isNaN(Number(price))) errors.push('Price should be a number; ');
         if (description.length < 10 || description.length > 1000) errors.push('Description should be at least 10 characters long and max 1000 characters long; ');
-        if (/^[A-Za-z]+$/.test(city) == false) errors.push('City should contains only english letters; ')
+        if (/^[A-Za-z ]+$/.test(city) == false) errors.push('City should contains only english letters; ')
         if (req.body.image) {
             if (!req.body.image.includes('image')) errors.push('The uploaded file should be an image; ');
         }

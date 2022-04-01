@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image'
 import { BsFillPersonFill, BsFillEnvelopeFill, BsFillPlusCircleFill } from 'react-icons/bs';
 import { IoLogOut } from 'react-icons/io5'
 import './Header.css'
-import img from '../Header/cars.jpeg'; 
+import img from '../Header/Free.jpeg'; 
 function Header() {
     const { userData, setUserData } = useContext(Context)
 

@@ -9,6 +9,11 @@ const userSchema = new mongoose.Schema({
         trim: true,
         required: 'Please fill a name. It can be your real one or a username.'
     },
+    kindOfUser: {
+        type: String,
+        trim: true,
+        required: 'Please fill a user type. It can be either user or seller.'
+    },
     email: {
         type: String,
         trim: true,
